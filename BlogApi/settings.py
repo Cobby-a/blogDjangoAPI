@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+import os
 import django
 from django.utils.translation import gettext
 django.utils.translation.ugettext = gettext
@@ -46,6 +47,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'userAPI',
     'appSettings',
+    'Articles',
 ]
 
 MIDDLEWARE = [
@@ -153,3 +155,6 @@ JWT_AUTH = {
     'JWT_EXPIRATION_DELTA': datetime.timedelta(days=3),
     'JWT_ALLOW_REFRESH': True,
 }
+
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'mediafiles')
+MEDIA_URL = '/media/'

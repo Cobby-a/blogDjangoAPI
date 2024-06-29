@@ -33,7 +33,7 @@ class UserView(APIView):
         if user_serializer.is_valid(raise_exception=False):
             user_serializer.save()
 
-            return Response({"user":user_serializer.data}, status=200)
+            return Response(user_serializer.data, status=200)
         return Response({"msg":"ERR"}, status=400)
     
     def get(self, request, format=None):
